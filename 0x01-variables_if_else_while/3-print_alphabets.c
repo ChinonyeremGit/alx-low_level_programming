@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - print lowercase and uppercase a-zA-Z using putchar
- * Return: Always 0 (Success)
+ *main - print lowercase and uppercase a-zA-Z using putchar
+ *Return: Always 0 (Success)
  */
 
 int main(void)
@@ -20,9 +20,9 @@ int main(void)
 	{
 		putchar(upper);
 		upper++;
-        }
+	}
 
 	putchar('\n');
 
-		return (0);
+	return (0);
 }

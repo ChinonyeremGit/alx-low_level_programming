@@ -30,3 +30,7 @@ Write a function that reverses a string.
 mandatory
 Write a function that prints every other character of a string, starting with
 the first character, followed by a new line.
+
+7. Winning is only half of it. Having fun is the other half
+mandatory
+Write a function that prints half of a string, followed by a new line.

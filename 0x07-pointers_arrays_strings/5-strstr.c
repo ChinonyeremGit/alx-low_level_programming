@@ -2,26 +2,6 @@
 #define NULL 0
 
 /**
- * compare - compares two string for equality
- * @haystack: string to compare
- * @needle: string to compare
- * Return: returns 0 or 1.
- */
-int compare(char *haystack, char *needle)
-{
-	while (*haystack && *needle)
-	{
-		if (*haystack != *needle)
-		{
-			return (0);
-		}
-		haystack++;
-		needle++;
-	}
-	return (*needle == '\0');
-}
-
-/**
  * _strstr - locate and return pointer to first occurence of substring
  * @haystack: string to search
  * @needle: target substring to search for
@@ -30,14 +10,32 @@ int compare(char *haystack, char *needle)
 
 char *_strstr(char *haystack, char *needle)
 {
-	while (*haystack != '\0')
+	int i = 0, j, x;
+
+	if (needle[0] == '\0')
+		return (haystack);
+
+	while (haystack[i] != '\0') /* iterate through haystack */
 	{
-		if (*haystack == *needle && compare(haystack, needle))
+		/* if a byte matches first char of needle */
+		/* interate through needle until match ends */
+		if (haystack[i] == needle[0])
 		{
-			return (haystack);
+			x = i, j = 0;
+			while (needle[j] != '\0')
+			{
+				if (haystack[x] == needle[j])
+					x++, j++;
+				else
+					break;
+			} /* if matched throughout, return haystack */
+			if (needle[j] == '\0')
+			{
+				return (haystack + i);
+			}
 		}
-		haystack++;
+		i++;
 	}
-	return (NULL);
+	return (NULL); /* No match */
 }
 

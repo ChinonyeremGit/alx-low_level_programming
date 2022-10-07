@@ -13,8 +13,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	void *arr;
 	unsigned int min, i;
 
-	if (old_size <= 0 || new_size <= 0)
-		return (NULL);
 	if (old_size == new_size)
 		return (ptr);
 	if (ptr == NULL)
@@ -22,7 +20,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		arr = malloc(new_size);
 		if (arr == NULL)
 			return (NULL);
-		return (arr);
+		else
+			return (arr);
 	}
 	if (new_size == 0 && ptr != NULL)
 	{

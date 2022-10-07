@@ -1,27 +1,28 @@
 #include "main.h"
 
 /**
- * *_calloc - fuinction that allocates memory for an array using malloc
- * @nmemb: element size of array
- * @size: data type size of array
-(* Return: NULL if nmemb or size is 0, pointer to memory on success or Null
- * if malloc fails.)
+ * _calloc - allocate memory and set all values to 0
+ * @nmemb: size
+ * @size: sizeof(datatype)
+ * Return: pointer to calloc'd string
  */
+
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *arr;
-	int i;
+	void *ptr;
+	unsigned int i; /* match unsigned arguments */
 
-	if (nmemb == 0 || size == 0)
+	if (nmemb <= 0 || size <= 0) /* validate input */
 		return (NULL);
-	arr = malloc(nmemb * size);
-	if (arr == NULL)
+
+	/* allocate memory and check if error */
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
 		return (NULL);
-	i = 0;
-	while (*arr)
-	{
-		arr[i] = 0;
-		i++;
-	}
-	return (arr);
+
+	/* set allocated memory values to 0 */
+	for (i = 0; i < nmemb * size; i++)
+		*((char *)ptr + i) = 0; /* type cast assigning values*/
+
+	return (ptr);
 }

@@ -9,9 +9,8 @@ void free_list(list_t *head)
 {
 	list_t *ptr;
 
- 
- 	while (head) /* have ptr keep track of head node and free*/
- 	{
+	while (head) /* have ptr keep track of head node and free*/
+	{
 		ptr = head->next;
 		free(head->str);
 		free(head);
